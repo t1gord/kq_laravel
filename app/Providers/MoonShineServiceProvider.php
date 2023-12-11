@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\MoonShine\Resources\FeedbackResource;
 use Illuminate\Support\ServiceProvider;
 use MoonShine\MoonShine;
 use MoonShine\Menu\MenuGroup;
@@ -21,10 +22,14 @@ class MoonShineServiceProvider extends ServiceProvider
                 MenuItem::make('moonshine::ui.resource.role_title', new MoonShineUserRoleResource())
                     ->translatable()
                     ->icon('bookmark'),
+
+                MenuItem::make('Обратная связь', new FeedbackResource())
+                    ->translatable()
+                    ->icon('heroicons.outline.at-symbol')
             ])->translatable(),
 
-            MenuItem::make('Documentation', 'https://laravel.com')
-                ->badge(fn() => 'Check'),
+//            MenuItem::make('Documentation', 'https://laravel.com')
+//                ->badge(fn() => 'Check'),
         ]);
     }
 }
